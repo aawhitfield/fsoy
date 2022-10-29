@@ -35,21 +35,38 @@ class _ChoiceCardsState extends ConsumerState<ChoiceCards> {
           List<bool> availableToChoose =
               ref.watch(gameProvider).availableToChoose;
           bool canSelect = availableToChoose[index];
+          Choice choice = choices[index];
+          bool isRighteous = (choice.points > 0);
+          bool isV2 = ref.watch(gameProvider).isV2;
+          bool isV1 = !isV2;
+          Color color = (isV1)
+              ? Theme.of(context).primaryColor
+              : (isRighteous)
+                  ? Colors.green
+                  : Colors.red;
+
+          String label = (isV1)
+              ? 'Pick Me'
+              : (isRighteous)
+                  ? 'Righteous Choice'
+                  : 'Sin';
 
           return (canSelect)
               ? ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: color,
+                  ),
                   onPressed: () async {
                     // open an alert dialog
                     await showDialog(
                         context: context,
                         builder: (context) {
-                          Choice choice = choices[index];
                           return ChanceCard(choice);
                         });
                     // refresh the state of the gameboard
                     ref.read(gameProvider).choose(index);
                   },
-                  child: const Text('Pick Me', style: TextStyle(fontSize: 20)))
+                  child: Text(label, style: const TextStyle(fontSize: 20)))
               : Container();
         }));
   }
