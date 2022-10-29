@@ -1,0 +1,77 @@
+[
+ {
+   "Position": 0,
+   "Points": 1,
+   "Description": "You said your prayers today."
+ },
+ {
+   "Position": 1,
+   "Points": -2,
+   "Description": "You cheated on your math test."
+ },
+ {
+   "Position": 2,
+   "Points": 1,
+   "Description": "You helped your parents by doing your chores without being asked."
+ },
+ {
+   "Position": 3,
+   "Points": 1,
+   "Description": "You read your scriptures today."
+ },
+ {
+   "Position": 4,
+   "Points": 1,
+   "Description": "You came to church with a good attitude."
+ },
+ {
+   "Position": 5,
+   "Points": -2,
+   "Description": "You lied to get out of trouble."
+ },
+ {
+   "Position": 6,
+   "Points": -2,
+   "Description": "You stole from the store."
+ },
+ {
+   "Position": 7,
+   "Points": -2,
+   "Description": "You took the Lkord's name in vain."
+ },
+ {
+   "Position": 8,
+   "Points": 1,
+   "Description": "You helped a friend with a problem."
+ },
+ {
+   "Position": 9,
+   "Points": -2,
+   "Description": "You drank a beer."
+ },
+ {
+   "Position": 10,
+   "Points": -2,
+   "Description": "You hit your sibling"
+ },
+ {
+   "Position": 11,
+   "Points": -2,
+   "Description": "You told someone a secret that you promised not to tell."
+ },
+ {
+   "Position": 12,
+   "Points": -2,
+   "Description": "You were on your phone at church instead of listening to the talk/lesson."
+ },
+ {
+   "Position": 13,
+   "Points": 1,
+   "Description": "You obeyed your parents."
+ },
+ {
+   "Position": 14,
+   "Points": 1,
+   "Description": "You said no to drugs"
+ }
+]
