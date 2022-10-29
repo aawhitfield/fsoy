@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fsoy/chance_card.dart';
+import 'package:fsoy/choice_cards.dart';
 import 'package:fsoy/providers.dart';
 
 class GameBoard extends ConsumerStatefulWidget {
@@ -62,26 +62,7 @@ class _GameBoardState extends ConsumerState<GameBoard> {
                   ],
                 ),
               ),
-              // a gridview of 15 elevated buttons that are 5 columns and 3 rows and that say 'Pick Me',
-              GridView.count(
-                  shrinkWrap: true,
-                  crossAxisCount: 5,
-                  crossAxisSpacing: 16,
-                  mainAxisSpacing: 16,
-                  childAspectRatio: 3,
-                  children: List.generate(
-                      15,
-                      (index) => ElevatedButton(
-                          onPressed: () {
-                            // open an alert dialog
-                            showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return const ChanceCard();
-                                });
-                          },
-                          child: const Text('Pick Me',
-                              style: TextStyle(fontSize: 20))))),
+              const ChoiceCards(),
               Padding(
                 padding: const EdgeInsets.only(bottom: 16.0),
                 child: SizedBox(
@@ -94,6 +75,7 @@ class _GameBoardState extends ConsumerState<GameBoard> {
                       itemCount: 11,
                       itemBuilder: (context, index) {
                         TextStyle style = const TextStyle(fontSize: 20);
+                        int position = ref.watch(gameProvider).position;
                         late Widget child;
                         switch (index) {
                           case 0:
@@ -102,11 +84,13 @@ class _GameBoardState extends ConsumerState<GameBoard> {
                           case 10:
                             child = Text('Heaven', style: style);
                             break;
-                          case 5:
-                            child = Text('X', style: style);
-                            break;
                           default:
-                            child = Container();
+                            child = (position == index)
+                                ? Text(
+                                    'X',
+                                    style: style,
+                                  )
+                                : Container();
                         }
 
                         return Container(
