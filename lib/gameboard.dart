@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fsoy/character.dart';
 import 'package:fsoy/choice_cards.dart';
 import 'package:fsoy/providers.dart';
+import 'package:lottie/lottie.dart';
 
 class GameBoard extends ConsumerStatefulWidget {
   const GameBoard({super.key, required this.title});
@@ -86,10 +88,7 @@ class _GameBoardState extends ConsumerState<GameBoard> {
                             break;
                           default:
                             child = (position == index)
-                                ? Text(
-                                    'X',
-                                    style: style,
-                                  )
+                                ? Character(position)
                                 : Container();
                         }
 
